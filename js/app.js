@@ -1,12 +1,12 @@
 var globalPageLanguage = 'en'; // Inglês por defaut (o idioma)
-var globalURL = []; // Assim posso armazenar mais de um parâmetro
+var globalURL = []; // Assim (com array) posso armazenar mais de um parâmetro oriunda da URL
 
-function setLanguage($language) { // Configura a linguagem detectada pelo navegador
+function setLanguage($language) { // Configura a linguagem detectada pela função getLanguage()
     globalPageLanguage = $language;
     console.log("Global: "+globalPageLanguage);
 }
 
-function getLanguage() { // Capitura a linguagem do navegador , solicita que a função congure-a
+function getLanguage() { // Capitura a linguagem do navegador , solicita que a função setLanguage() congure-a
     let language = navigator.language || navigator.userLanguage;
     let codeLanguage = language[0]+language[1];
 
@@ -26,7 +26,7 @@ function getLanguage() { // Capitura a linguagem do navegador , solicita que a f
 }
 
 
-function ResGetURL($value) { // Responde retorno de URL
+function ResGetURL($value) { // Responde retorno da função getURL()
     globalURL[0] = $value;
     console.log(globalURL[0]);
 }
@@ -37,7 +37,7 @@ function includePageHTML($element, $path, $page) { // Inclui página usando jQue
     });
 }
 
-function getURL() {
+function getURL() { // Pega um parametro apenas originada de URL
     //Array de getURLetros 'chave=valor'
     var getURLs = window.location.search.substring(1).split('&');
     //Criar objeto que vai conter os getURLetros
@@ -50,6 +50,6 @@ function getURL() {
         getURLArray[getURL[0]] = getURL[1];
     }
 
-    let action = getURL[1];
+    let action = getURL[1]; // Seleciona posição de parametro dentro da função
     ResGetURL(action);
 }
