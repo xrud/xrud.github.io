@@ -1,9 +1,12 @@
-function setLanguage($language) {
-    var globalPageLanguage = $language;
-    console.log(globalPageLanguage);
+var globalPageLanguage = 'en'; // Inglês por defaut (o idioma)
+var globalURL = []; // Assim posso armazenar mais de um parâmetro
+
+function setLanguage($language) { // Configura a linguagem detectada pelo navegador
+    globalPageLanguage = $language;
+    console.log("Global: "+globalPageLanguage);
 }
 
-function getLanguage() {
+function getLanguage() { // Capitura a linguagem do navegador , solicita que a função congure-a
     let language = navigator.language || navigator.userLanguage;
     let codeLanguage = language[0]+language[1];
 
@@ -24,7 +27,8 @@ function getLanguage() {
 
 
 function ResGetURL($value) { // Responde retorno de URL
-    console.log($value);
+    globalURL[0] = $value;
+    console.log(globalURL[0]);
 }
 
 function includePageHTML($element, $path, $page) { // Inclui página usando jQuery
