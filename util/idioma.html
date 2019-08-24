@@ -1,0 +1,25 @@
+<script type="text/javascript">
+
+function setLanguage($language){
+	var globalPageLanguage = $language;
+	console.log(globalPageLanguage);
+}
+
+function getLanguage(){
+		let language = navigator.language || navigator.userLanguage;
+
+		switch (language) {
+	  case 'pt-BR':
+	    setLanguage('pt-BR');
+	    break;
+	  case 'es':
+	  setLanguage('es');
+	    break;
+	  default:
+	    setLanguage('en');
+
+	}
+}
+
+getLanguage();
+</script>
